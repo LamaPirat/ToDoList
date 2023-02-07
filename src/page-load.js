@@ -24,30 +24,8 @@ function pageLoad() {
   let sideBar = document.createElement("div");
   sideBar.classList = "sideBar";
 
-  let dayFilters = [
-    {
-      icon: "clear_day",
-      text: "My day",
-    },
-    {
-      icon: "date_range",
-      text: "This week",
-    },
-    {
-      icon: "task",
-      text: "All tasks",
-    },
-  ];
+  sideBar.appendChild(dayFilterLoad);
 
-  let timeFrame = document.createElement("div");
-  timeFrame.classList = "timeFrame";
-
-  for (let i = 0; i < dayFilters.length; i++) {
-    timeFrame.appendChild(
-      dayFilterLoad(dayFilters[i].icon, dayFilters[i].text)
-    );
-  }
-  sideBar.appendChild(timeFrame);
   mainContain.appendChild(sideBar);
 
   //display
