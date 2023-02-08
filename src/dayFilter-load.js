@@ -29,7 +29,7 @@ let dayFilterLoad = function () {
     let text = document.createElement("p");
     text.classList = "sideBarP";
     text.textContent = dayFilters[i].text;
-    timeFrame.appendChild(text);
+    timeFrame.appendChild(text);    
 
     dayFilter.appendChild(timeFrame);
   }
