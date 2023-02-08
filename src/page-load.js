@@ -24,6 +24,12 @@ function pageLoad() {
   let sideBar = document.createElement("div");
   sideBar.classList = "sideBar";
 
+  let newProject = document.createElement("button");
+  newProject.id = "newProject";
+  newProject.classList = "newButton";
+  newProject.textContent = "Create project";
+  sideBar.appendChild(newProject);
+
   sideBar.appendChild(dayFilterLoad);
 
   mainContain.appendChild(sideBar);

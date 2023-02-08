@@ -1,4 +1,4 @@
-const projectFactory = (name, dueDate) => {
+export const ProjectFactory = (name, dueDate) => {
   let tasks = [];
   let projectState = false;
   const getName = () => name;
@@ -22,11 +22,10 @@ const projectFactory = (name, dueDate) => {
   return { getName, getDate, addTask, getTasks, getState, changeProjectState };
 };
 
-const taskFactory = (name, description) => {
+export const TaskFactory = (name) => {
   let taskState = false;
 
   const getName = () => name;
-  const getDescription = () => description;
   const getState = () => taskState;
   const changeTaskState = () => {
     if (taskState === false) {
@@ -36,7 +35,7 @@ const taskFactory = (name, description) => {
     }
   };
 
-  return { getName, getDescription, getState, changeTaskState };
+  return { getName, getState, changeTaskState };
 };
 
-export { projectFactory, taskFactory };
+//export { ProjectFactory, TaskFactory };
