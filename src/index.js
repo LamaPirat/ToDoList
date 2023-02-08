@@ -1,8 +1,8 @@
 import _ from "date-fns";
 import pageLoad from "./page-load";
 import { ProjectFactory, TaskFactory } from "./factory";
-import "./style.css";
-import css from "file.css";
+
+import css from "./style.css";
 
 document.body.appendChild(pageLoad);
 

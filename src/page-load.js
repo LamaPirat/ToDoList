@@ -1,6 +1,15 @@
 import dayFilterLoad from "./dayFilter-load";
 
 function pageLoad() {
+  //Header link for google icons
+  let link = document.createElement("link");
+  link.href =
+    "http://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200";
+  link.rel = "stylesheet";
+  document.getElementsByTagName("head")[0].appendChild(link); // for IE6
+
+  // Main
+
   let mainContain = document.createElement("div");
   mainContain.id = "mainContain";
 
