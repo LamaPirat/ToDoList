@@ -30,3 +30,39 @@ body {
   align-items: flex-start;
   gap: 10px;
 }
+
+.projectContainer {
+}
+
+.creationContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+
+  background-color: white;
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.creationContainer * {
+  margin: 10px;
+}
+
+.nameInput {
+  border-radius: 25px;
+  border-width: 1px;
+  text-align: start;
+  padding-left: 10px;
+  height: 5vh;
+}
+
+#taskSubmitButton {
+  width: 50px;
+  height: 5vh;
+  border-radius: 25px;
+  width: 15vh;
+}

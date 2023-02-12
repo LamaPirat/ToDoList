@@ -44,8 +44,9 @@ function pageLoad() {
   mainContain.appendChild(sideBar);
 
   //display
-  let display = document.createElement("div");
-  display.classList = "display";
+  let projectContainer = document.createElement("div");
+  projectContainer.classList = "projectContainer";
+  mainContain.appendChild(projectContainer);
 
   return mainContain;
 }
