@@ -1,3 +1,5 @@
+import { ProjectFactory, TaskFactory } from "./factory";
+
 function projectCreator() {
   let creationContainer = document.createElement("form");
   creationContainer.classList = "creationContainer";
@@ -33,10 +35,37 @@ function projectCreator() {
   taskSubmitter.textContent = "add task";
   taskReciever.appendChild(taskSubmitter);
 
-  creationContainer.appendChild(taskReciever);
-
   //Create a lister for tasks during project creation
   let taskLister = document.createElement("ul");
+  taskLister.classList = taskLister;
+  taskReciever.appendChild(taskLister);
+
+  creationContainer.appendChild(taskReciever);
+
+  let tasks = [];
+
+  taskSubmitter.onclick = () => {
+    let task = document.createElement("li");
+    task.classList = "task";
+    task.textContent = taskInput.value;
+    taskLister.appendChild(task);
+    tasks.push(TaskFactory(taskInput.value));
+    console.log(tasks);
+  };
+
+  // projectSubmitter
+
+  let projectSubmitter = document.createElement("button");
+  projectSubmitter.classList = "button";
+  projectSubmitter.id = "projectSubmitButton";
+  projectSubmitter.type = "button";
+  projectSubmitter.name = "projectSubmitButton";
+  projectSubmitter.textContent = "Save project";
+  creationContainer.appendChild(projectSubmitter);
+
+  projectSubmitter.onclick = () => {
+    let project = ProjectFactory(nameInput.value, "10.02.2023", tasks);
+  };
 
   return creationContainer;
 }

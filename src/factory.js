@@ -1,5 +1,8 @@
-export const ProjectFactory = (name, dueDate) => {
+export const ProjectFactory = (name, dueDate, taskList) => {
   let tasks = [];
+  taskList.array.forEach((element) => {
+    tasks.push(TaskFactory(element));
+  });
   let projectState = false;
   const getName = () => name;
   const getDate = () => dueDate;
