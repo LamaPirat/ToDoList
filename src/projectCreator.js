@@ -1,20 +1,32 @@
 import { ProjectFactory, TaskFactory } from "./factory";
+import _, { endOfDay } from "date-fns";
+import { ProjectLibrary } from "./project-library";
 
-function projectCreator() {
+function projectCreator(projectLibrary) {
   let creationContainer = document.createElement("form");
   creationContainer.classList = "creationContainer";
+
+  projectLibrary = this.projectLibrary;
 
   let nameInput = document.createElement("input");
   nameInput.classList = "nameInput";
   nameInput.type = "text";
   nameInput.id = "name";
   nameInput.name = "name";
+  nameInput.required = true;
   nameInput.placeholder = "Name your project";
   nameInput.required = true;
   nameInput.minLength = 1;
   creationContainer.appendChild(nameInput);
 
-  //let dateInput = document.createElement()
+  let dateInput = document.createElement("input");
+  dateInput.classList = "nameInput dateInput";
+  dateInput.id = "dateInput";
+  dateInput.type = "date";
+  dateInput.required = true;
+  dateInput.placeholder = "Enter due date for project";
+  dateInput.min = endOfDay(new Date());
+  creationContainer.appendChild(dateInput);
 
   let taskReciever = document.createElement("div");
   taskReciever.classList = "taskReciever";
@@ -49,8 +61,9 @@ function projectCreator() {
     task.classList = "task";
     task.textContent = taskInput.value;
     taskLister.appendChild(task);
-    tasks.push(TaskFactory(taskInput.value));
-    console.log(tasks);
+    let taskObject = TaskFactory(taskInput.value);
+    console.log(taskObject);
+    tasks.push(taskObject);
   };
 
   // projectSubmitter
@@ -64,10 +77,12 @@ function projectCreator() {
   creationContainer.appendChild(projectSubmitter);
 
   projectSubmitter.onclick = () => {
-    let project = ProjectFactory(nameInput.value, "10.02.2023", tasks);
+    let newProject = ProjectFactory(nameInput.value, dateInput.value, tasks);
+    //console.log(ProjectLibrary);
+    projectLibrary.addProject(newProject);
   };
 
   return creationContainer;
 }
 
-export default projectCreator();
+export default projectCreator(ProjectLibrary());
